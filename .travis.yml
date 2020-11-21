@@ -5,7 +5,7 @@ dist: xenial
 script:
 - sudo ip a
 - sudo cat /etc/docker/daemon.json
-- echo $ACCESS_TOKEN | docker login --username damianszymanski --password-stdin
+# - echo $ACCESS_TOKEN | docker login --username damianszymanski --password-stdin
 # - sudo rm /etc/docker/daemon.json
 # - curl -I 10.40.0.200:443
 # - curl -I 10.30.0.28:5000
