@@ -1,0 +1,77 @@
+# service:
+# - docker
+dist: xenial
+
+script:
+- sudo ip a
+- sudo cat /etc/docker/daemon.json
+# - echo $ACCESS_TOKEN | docker login --username damianszymanski --password-stdin
+# - sudo rm /etc/docker/daemon.json
+# - curl -I 10.40.0.200:443
+# - curl -I 10.30.0.28:5000
+- curl -I https://registry-1.travis-ci.com
+# - sudo cp daemon.json /etc/docker/daemon.json
+# - sudo rm -f /etc/docker/daemon.json
+# - sudo systemctl restart docker
+# - sudo cat /etc/docker/daemon.json
+# - docker run microsoft/azure-cli ls
+- docker run alpine ls
+- docker run busybox ls
+- docker run httpd ls
+- docker run memcached ls
+- docker run mongo ls
+# - docker run ruby:2.6.5 ls
+# - docker run ruby:2.7.0 ls
+# - docker run ubuntu:18.04 ls
+# - docker run ubuntu:20.04 ls
+
+# - docker run damianszymanski/debian ls
+# - sleep 600
+# - cat /etc/cloud/cloud.cfg
+# - . /etc/os-release
+# - systemd-analyze plot > file-$VERSION_CODENAME.svg
+# - systemd-analyze --user
+# - systemd-analyze --user blame
+# - systemd-analyze --user critical-chain
+# - systemd-analyze --user dump
+# - curl -F "UPLOADCARE_PUB_KEY=$UPLOADCARE_PUB_KEY" -F "UPLOADCARE_STORE=1" -F "file=@file-$VERSION_CODENAME.svg" "https://upload.uploadcare.com/base/"
+# - sleep 600
+# - ls -l /var/lib/apt/periodic/update-success-stamp | awk '{print $6" "$7" "$8}'
+# - cat /var/log/cloud-init-output.log
+# - cloud-init analyze show -i /var/log/cloud-init.log
+# - sudo dpkg -l | grep ntp
+
+# jobs:
+#     include:
+#     - dist: xenial
+#       name: xenial
+#       group: edge
+#     - dist: bionic
+#       name: bionic
+#       group: edge
+#     - dist: focal
+#       name: focal
+#       group: edge
+
+jobs:
+  include:
+  - rvm: 2.7.2
+    name: Ruby 2.7.2
+  - rvm: 2.7.1
+    name: Ruby 2.7.1
+  - rvm: 2.7.0
+    name: Ruby 2.7.0
+  - rvm: 2.6.0
+    name: Ruby 2.6.0
+  - rvm: 2.6.1
+    name: Ruby 2.6.1
+  - rvm: 2.6.2
+    name: Ruby 2.6.2
+  - rvm: 2.6.3
+    name: Ruby 2.6.3
+  - rvm: 2.6.4
+    name: Ruby 2.6.4
+  - rvm: 2.6.5
+    name: Ruby 2.6.5
+  - rvm: 2.6.6
+    name: Ruby 2.6.6   
